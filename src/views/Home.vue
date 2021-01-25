@@ -1,18 +1,24 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="card">
+    <h1>{{ title }}</h1>
+
+    <button class="btn" @click="navigate">Открыть пользователей</button>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { useRouter } from "vue-router";
 
 export default defineComponent({
-  name: "Home",
-  components: {
-    HelloWorld
-  }
+  setup() {
+    const router = useRouter();
+    return {
+      title: "Как Vue работает с TypeScript?",
+      navigate: (): void => {
+        router.push("/users");
+      },
+    };
+  },
 });
 </script>
