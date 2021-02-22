@@ -14,6 +14,6 @@ export function useFetch<T>(url: RequestInfo, options?: RequestInit) {
     const res = await fetch(url, options);
     response.value = await res.json();
   };
-
+  //asdf
   return { response, request };
 }
